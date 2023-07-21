@@ -4,12 +4,16 @@
     <h1>You're doing it!</h1>
     <br>
     <table class="table table-hover">
+      {% for p in posts %}
         <tr>
             <td>
                 <br>
-                <span id="post1">This is my one and only blog post. Can you add more using a for loop?</span>
+                <span id="post{{ loop.index }}" data-user-id="{{ p.user_id }}" data-language-code="{{ p.language }}">
+                    {{ p.body }}
+                </span>
             </td>
         </tr>
+      {% endfor %}
     </table>
     <nav aria-label="...">
         <ul class="pager">
